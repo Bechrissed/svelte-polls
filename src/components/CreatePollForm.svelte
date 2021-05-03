@@ -37,7 +37,7 @@
         ...fields,
         votesA: 0,
         votesB: 0,
-        id: Math.floor(Math.random() * 100),
+        id: Math.random(),
       };
       dispatch('add', poll);
     }
