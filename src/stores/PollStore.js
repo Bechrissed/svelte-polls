@@ -1,4 +1,5 @@
 import { writable } from 'svelte/store';
+// const storedPolls = localStorage.getItem('polls');
 
 let PollStore = writable([{
     id: 1,
@@ -8,5 +9,7 @@ let PollStore = writable([{
     votesA: 12,
     votesB: 26,
 }, ]);
+
+// const PollStore = writable(storedPolls);
 
 export default PollStore;
