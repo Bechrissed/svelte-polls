@@ -35,4 +35,10 @@
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
   }
+  @media (max-width: 500px) {
+    .poll-list {
+      margin: 0 20px;
+      grid-template-columns: 1fr;
+    }
+  }
 </style>
