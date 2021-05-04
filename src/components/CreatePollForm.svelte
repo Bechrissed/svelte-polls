@@ -44,7 +44,8 @@
       PollStore.update((curPolls) => {
         return [poll, ...curPolls];
       });
-      dispatch('add', poll);
+
+      dispatch('add');
     }
   };
 </script>

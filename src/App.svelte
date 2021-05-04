@@ -12,7 +12,7 @@
     activeItem = e.detail;
   };
 
-  const addHandler = (e) => {
+  const addHandler = () => {
     activeItem = 'Current Polls';
   };
 </script>
