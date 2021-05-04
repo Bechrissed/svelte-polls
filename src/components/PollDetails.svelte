@@ -2,8 +2,8 @@
   import { db } from '../firebase';
   import { tweened } from 'svelte/motion';
   import Card from '../shared/Card.svelte';
-  import Button from '../shared/Button.svelte';
-  import PollStore from '../stores/PollStore';
+  // import Button from '../shared/Button.svelte';
+  // import PollStore from '../stores/PollStore';
 
   export let poll;
 
@@ -45,12 +45,12 @@
     }
   };
 
-  const deleteHandler = (id) => {
-    db.collection('poll').doc(id).delete();
-    //   PollStore.update((curPoll) => {
-    //     return curPoll.filter((poll) => poll.id != id);
-    //   });
-  };
+  // const deleteHandler = (id) => {
+  //   db.collection('poll').doc(id).delete();
+  //   //   PollStore.update((curPoll) => {
+  //   //     return curPoll.filter((poll) => poll.id != id);
+  //   //   });
+  // };
 </script>
 
 <Card>
@@ -72,9 +72,9 @@
       </span>
     </div>
   </div>
-  <div class="delete">
+  <!-- <div class="delete">
     <Button flat on:click={() => deleteHandler(poll.id)}>Delete</Button>
-  </div>
+  </div> -->
 </Card>
 
 <style>
@@ -115,8 +115,8 @@
     background-color: rgba(69, 196, 66, 0.4);
   }
 
-  .delete {
+  /* .delete {
     margin-top: 30px;
     text-align: center;
-  }
+  } */
 </style>
