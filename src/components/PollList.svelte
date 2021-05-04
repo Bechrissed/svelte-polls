@@ -1,11 +1,16 @@
 <script>
   // import { onDestroy } from 'svelte';
+  import { db } from '../firebase';
   import { fade, slide, scale } from 'svelte/transition';
   import { flip } from 'svelte/animate';
   import PollDetails from './PollDetails.svelte';
-  import PollStore from '../stores/PollStore';
+  // import PollStore from '../stores/PollStore';
 
-  // export let polls = [];
+  let polls = [];
+
+  db.collection('poll').onSnapshot((data) => {
+    polls = data.docs;
+  });
 
   // const unsubscribe = PollStore.subscribe((data) => {
   //   polls = data;
@@ -17,7 +22,7 @@
 </script>
 
 <div class="poll-list">
-  {#each $PollStore as poll (poll.id)}
+  {#each polls as poll (poll.id)}
     <div out:scale|local animate:flip={{ duration: 500 }}>
       <PollDetails {poll} />
     </div>

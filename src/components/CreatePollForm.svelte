@@ -1,4 +1,5 @@
 <script>
+  import { db } from '../firebase';
   import { createEventDispatcher } from 'svelte';
   import Button from '../shared/Button.svelte';
   import PollStore from '../stores/PollStore';
@@ -38,12 +39,14 @@
         ...fields,
         votesA: 0,
         votesB: 0,
-        id: Math.random(),
+        // id: Math.random(),
       };
 
-      PollStore.update((curPolls) => {
-        return [poll, ...curPolls];
-      });
+      db.collection('poll').add(poll);
+
+      // PollStore.update((curPolls) => {
+      //   return [poll, ...curPolls];
+      // });
 
       dispatch('add');
     }

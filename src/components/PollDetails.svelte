@@ -1,4 +1,5 @@
 <script>
+  import { db } from '../firebase';
   import { tweened } from 'svelte/motion';
   import Card from '../shared/Card.svelte';
   import Button from '../shared/Button.svelte';
@@ -6,9 +7,9 @@
 
   export let poll;
 
-  $: totalVotes = poll.votesA + poll.votesB;
-  $: percentA = Math.floor((100 / totalVotes) * poll.votesA) || 0;
-  $: percentB = Math.floor((100 / totalVotes) * poll.votesB) || 0;
+  $: totalVotes = poll.data().votesA + poll.data().votesB;
+  $: percentA = Math.floor((100 / totalVotes) * poll.data().votesA) || 0;
+  $: percentB = Math.floor((100 / totalVotes) * poll.data().votesB) || 0;
 
   // tweened percentages
   const tweenedA = tweened(0);
@@ -16,42 +17,58 @@
   $: tweenedA.set(percentA);
   $: tweenedB.set(percentB);
 
-  const handleVote = (option, id) => {
-    PollStore.update((curPoll) => {
-      let copiedPolls = [...curPoll];
-      let upvotedPoll = copiedPolls.find((poll) => poll.id == id);
+  const voteHandler = (option, id) => {
+    // PollStore.update((curPoll) => {
+    //   let copiedPolls = [...curPoll];
+    //   let upvotedPoll = copiedPolls.find((poll) => poll.id == id);
 
-      if (option === 'a') upvotedPoll.votesA++;
+    //   if (option === 'a') upvotedPoll.votesA++;
 
-      if (option === 'b') upvotedPoll.votesB++;
+    //   if (option === 'b') upvotedPoll.votesB++;
 
-      return copiedPolls;
-    });
+    //   return copiedPolls;
+    // });
+
+    if (option === 'a') {
+      let vote = poll.data().votesA + 1;
+      console.log(vote);
+      db.collection('poll').doc(id).update({
+        votesA: vote,
+      });
+    }
+
+    if (option === 'b') {
+      let vote = poll.data().votesB + 1;
+      db.collection('poll').doc(id).update({
+        votesB: vote,
+      });
+    }
   };
 
   const deleteHandler = (id) => {
-    PollStore.update((curPoll) => {
-      return curPoll.filter((poll) => poll.id != id);
-    });
+    db.collection('poll').doc(id).delete();
+    //   PollStore.update((curPoll) => {
+    //     return curPoll.filter((poll) => poll.id != id);
+    //   });
   };
 </script>
 
 <Card>
   <div class="poll">
     <h3>
-      {poll.question}
+      {poll.data().question}
     </h3>
     <p>Total votes: {totalVotes}</p>
-    <div class="answer" on:click={() => handleVote('a', poll.id)}>
+    <div class="answer" on:click={() => voteHandler('a', poll.id)}>
       <div class="percent percent-a" style="width: {$tweenedA}%" />
       <span>
-        {poll.answerA} ({poll.votesA})
+        {poll.data().answerA} ({poll.data().votesA})
       </span>
     </div>
-    <div class="answer" on:click={() => handleVote('b', poll.id)}>
+    <div class="answer" on:click={() => voteHandler('b', poll.id)}>
       <div class="percent percent-b" style="width: {$tweenedB}%" />
       <span>
-        {poll.answerB} ({poll.votesB})
+        {poll.data().answerB} ({poll.data().votesB})
       </span>
     </div>
   </div>
