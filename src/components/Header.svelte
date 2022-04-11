@@ -1,5 +1,5 @@
 <header>
-  <h1>POLL APP</h1>
+  <h1>[code]capi Pollz</h1>
 </header>
 
 <style>

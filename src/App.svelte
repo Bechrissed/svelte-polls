@@ -5,24 +5,24 @@
   import CreatePollForm from './components/CreatePollForm.svelte';
   import Tabs from './shared/Tabs.svelte';
 
-  let items = ['Current Polls', 'Add new Polls'];
-  let activeItem = 'Current Polls';
+  let items = ['Actieve polls', 'Nieuwe poll'];
+  let activeItem = 'Actieve polls';
 
   const tabChangeHandler = (e) => {
     activeItem = e.detail;
   };
 
   const addHandler = () => {
-    activeItem = 'Current Polls';
+    activeItem = 'Actieve polls';
   };
 </script>
 
 <Header />
 <main>
   <Tabs {items} {activeItem} on:tabChange={tabChangeHandler} />
-  {#if activeItem === 'Current Polls'}
+  {#if activeItem === 'Actieve polls'}
     <PollList />
-  {:else if activeItem === 'Add new Polls'}
+  {:else if activeItem === 'Nieuwe poll'}
     <CreatePollForm on:add={addHandler} />
   {/if}
 </main>

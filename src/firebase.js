@@ -1,13 +1,13 @@
-import firebase from 'firebase/app';
-import 'firebase/firestore';
+import firebase from "firebase/app";
+import "firebase/firestore";
 
 const firebaseConfig = {
-    apiKey: 'AIzaSyCIE9m0h9bkJJtsDXWPPdvON7LdzrHuFdw',
-    authDomain: 'poll-app-p21.firebaseapp.com',
-    projectId: 'poll-app-p21',
-    storageBucket: 'poll-app-p21.appspot.com',
-    messagingSenderId: '621439018053',
-    appId: '1:621439018053:web:30d3adb6117c38e9726f2c',
+  apiKey: "AIzaSyDBQbuLMwxUfvojJeHu3gU7R2whqXWTmmw",
+  authDomain: "codecapi-polls.firebaseapp.com",
+  projectId: "codecapi-polls",
+  storageBucket: "codecapi-polls.appspot.com",
+  messagingSenderId: "1044582332499",
+  appId: "1:1044582332499:web:c91b1114174d1425592ea6",
 };
 
 firebase.initializeApp(firebaseConfig);

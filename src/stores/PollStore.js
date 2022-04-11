@@ -1,14 +1,16 @@
-import { writable } from 'svelte/store';
+import { writable } from "svelte/store";
 // const storedPolls = localStorage.getItem('polls');
 
-let PollStore = writable([{
+let PollStore = writable([
+  {
     id: 1,
-    question: 'Dog or Cat?',
-    answerA: 'Dog',
-    answerB: 'Cat',
-    votesA: 12,
-    votesB: 26,
-}, ]);
+    question: "Yay or Nay?",
+    answerA: "Yay",
+    answerB: "Nay",
+    votesA: 1,
+    votesB: 0,
+  },
+]);
 
 // const PollStore = writable(storedPolls);
 

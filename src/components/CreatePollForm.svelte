@@ -15,21 +15,21 @@
     // validating question
     if (fields.question.trim().length < 5) {
       valid = false;
-      errors.question = 'Question must be at least 5 characters.';
+      errors.question = 'Voer een vraag van minimaal 5 karakters in';
     } else {
       errors.question = '';
     }
 
     if (fields.answerA.trim().length < 1) {
       valid = false;
-      errors.answerA = 'Answer cannot be empty.';
+      errors.answerA = 'Antwoord mag niet leeg zijn.';
     } else {
       errors.answerA = '';
     }
 
     if (fields.answerB.trim().length < 1) {
       valid = false;
-      errors.answerB = 'Answer cannot be empty.';
+      errors.answerB = 'Antwoord mag niet leeg zijn.';
     } else {
       errors.answerB = '';
     }
@@ -55,21 +55,21 @@
 
 <form on:submit|preventDefault={submitHandler}>
   <div class="form-field">
-    <label for="question">Poll Question: </label>
+    <label for="question">Poll vraag: </label>
     <input bind:value={fields.question} type="text" id="question" />
     <div class="error">{errors.question}</div>
   </div>
   <div class="form-field">
-    <label for="answer-a">Answer A: </label>
+    <label for="answer-a">Antwoord A: </label>
     <input bind:value={fields.answerA} type="text" id="answer-a" />
     <div class="error">{errors.answerA}</div>
   </div>
   <div class="form-field">
-    <label for="answer-b">Answer B: </label>
+    <label for="answer-b">Antwoord B: </label>
     <input bind:value={fields.answerB} type="text" id="answer-b" />
     <div class="error">{errors.answerB}</div>
   </div>
-  <Button inverse>Add Poll</Button>
+  <Button inverse>Poll toevoegen</Button>
 </form>
 
 <style>
