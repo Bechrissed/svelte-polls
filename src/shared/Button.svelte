@@ -18,7 +18,7 @@
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
   }
   .primary {
-    background-color: #d91b42;
+    background-color: #13ca91;
     color: white;
   }
 
@@ -30,9 +30,9 @@
     box-shadow: none;
   }
   .primary.inverse {
-    color: #d91b42;
+    color: #13ca91;
     background-color: white;
-    border: 2px solid #d91b42;
+    border: 2px solid #13ca91;
   }
   .secondary.inverse {
     color: #45c49c;

@@ -1,5 +1,5 @@
 <header>
-  <h1>[code]capi Pollz</h1>
+  <h1>[code]capi pollz</h1>
 </header>
 
 <style>
@@ -9,6 +9,6 @@
   }
   h1 {
     margin: 0;
-    color: crimson;
+    color: #13ca91;
   }
 </style>

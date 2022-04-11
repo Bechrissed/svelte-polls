@@ -58,7 +58,7 @@
     <h3>
       {poll.data().question}
     </h3>
-    <p>Total votes: {totalVotes}</p>
+    <p>Totaal aantal stemmen: {totalVotes}</p>
     <div class="answer" on:click={() => voteHandler('a', poll.id)}>
       <div class="percent percent-a" style="width: {$tweenedA}%" />
       <span>

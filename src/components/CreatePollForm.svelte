@@ -99,6 +99,6 @@
   .error {
     font-weight: bold;
     font-size: 12px;
-    color: #d91b42;
+    color: #13ca91;
   }
 </style>

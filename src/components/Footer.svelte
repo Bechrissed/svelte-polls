@@ -1,5 +1,5 @@
 <footer>
-  <div class="copyright">Copyright &copy; 2022 [code]capi</div>
+  <div class="copyright">&copy; 2022 [code]capi</div>
 </footer>
 
 <style>
